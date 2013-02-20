@@ -11,6 +11,7 @@ class Board
   private
 
   def validate_board map
+    raise InvalidBoard if map.count("^") > 1
     raise InvalidBoard if map.empty?
     raise InvalidBoard if /[^\^\$\.#\n]/ =~ map
     raise NoEntryFound unless /\^/ =~ map

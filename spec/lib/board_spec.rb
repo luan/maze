@@ -12,8 +12,11 @@ describe Board do
       its(:cells) { should == [["^", ".", ".", "#"], [".", ".", "#", "$"]] }
     end
 
-    # it "handles double entry points"
-    # it "handles double exit"
+    it "handles double entry points" do
+      expect {
+        Board. new "^^..$"
+      }.to raise_error Board::InvalidBoard
+    end
 
     context "when passing an invalid map" do
       it "raises an error for the empty string" do
@@ -23,9 +26,9 @@ describe Board do
       end
 
       it "raises an error for a map with unknown characters" do
-        -> do
+        expect {
           Board.new "^hakuna.matata$"
-        end.should raise_error Board::InvalidBoard
+        }.to raise_error Board::InvalidBoard
       end
 
       it "raises an error a map without both entry point and exit" do
