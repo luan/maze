@@ -1,5 +1,5 @@
 class ConsoleRenderer
-  def initialize board
+  def initialize(board)
     @board = board
   end
 
