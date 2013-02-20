@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require './lib/board'
+require './lib/console_renderer'
+
+board_input = <<-BOARD
+^.#...
+#...#.
+#####.
+$.....
+BOARD
+
+board = Board.new board_input
+ConsoleRenderer.new(board).show
