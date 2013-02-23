@@ -1,13 +1,16 @@
 class ConsoleRenderer
-  def initialize(board)
-    @board = board
+  def initialize(options)
+    @board = options[:board]
+    @player = options[:player]
   end
 
   def show
-    puts board.cells.map { |line| line.join '' }.join("\n")
+    cells = board.cells
+    cells[player.position.y][player.position.x] = '@' if player
+    puts cells.map { |line| line.join '' }.join("\n")
   end
 
   private
 
-  attr_reader :board
+  attr_reader :board, :player
 end

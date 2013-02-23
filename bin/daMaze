@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require './lib/board'
+require './lib/player'
 require './lib/console_renderer'
 
 board_input = <<-BOARD
@@ -11,4 +12,5 @@ $.....
 BOARD
 
 board = Board.new board_input
-ConsoleRenderer.new(board).show
+player = Player.new x: 2, y: 2
+ConsoleRenderer.new(board: board, player: player).show
